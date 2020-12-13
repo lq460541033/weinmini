@@ -1,0 +1,58 @@
+<!--pages/test/test.wxml-->
+<!-- <view class='padding flex flex-direction'>
+  <button class="cu-btn bg-blue margin-tb-xs lg"  hidden="{{hid1}}"  open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权</button>
+  <button class="cu-btn bg-blue margin-tb-xs lg"  hidden="{{hid2}}"  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" >进入</button>
+</view> -->
+<view class='swiper'>
+    <swiper indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" duration="{{duration}}" interval='{{interval}}' bindchange="bindchange"  circular="{{circular}}" style="height:{{imgheights[current]}}rpx;">
+    <block wx:for='{{imgList}}' wx:key="{{index}}">
+      <swiper-item>
+        <image src="{{item}}" data-id='{{index}}' class="slide-image" mode="widthFix" bindload="imageLoad"/>
+      </swiper-item>
+      </block>
+    </swiper>
+	</view>
+	<view >
+      <!-- <view class="weui-form"> -->
+            <view class="weui-form__control-area">
+              <view class="weui-cells__group weui-cells__group_form">
+                <view class="weui-cells weui-cells_form">
+                  <view class="weui-cell weui-cell_active">
+                    <view class="weui-cell__hd"><label class="weui-label">合约</label></view>
+                    <view class="weui-cell__bd">
+                      <input class="weui-input" placeholder="填写本人微信号" placeholder-class="weui-input__placeholder" />
+                    </view>
+                  </view>
+                  <view class="weui-cell weui-cell_active">
+                    <view class="weui-cell__hd">							
+                                    <label class="weui-label">合同量</label>
+                                </view>
+                    <view class="weui-cell__bd">
+                      <input class="weui-input" placeholder="填写本人微信号的昵称" placeholder-class="weui-input__placeholder" />
+                    </view>
+                  </view>
+                  <view class="weui-cell weui-cell_active">
+                    <view class="weui-cell__hd">							
+                                    <label class="weui-label">点价截至时间</label>
+                                </view>
+                    <view class="weui-cell__bd">
+                      <input class="weui-input" placeholder="填写绑定的电话号码" type="number" placeholder-class="weui-input__placeholder" />
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="weui-form__opr-area">
+              <a class="weui-btn weui-btn_primary">计算</a>
+            </view>
+
+            <view class="weui-form__extra-area">
+              <view class="weui-footer">
+                <view class="weui-footer__links">
+                  <a href="javascript:" class="weui-footer__link">底部链接文本</a>
+                </view>
+                <view class="weui-footer__text">Copyright © 2008-2019 weui.io</view>
+              </view>
+            </view>
+      <!-- </view> -->
+    </view>
