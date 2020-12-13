@@ -30,7 +30,10 @@ Page({
       //图片宽度 
       imgwidth: 750,
       //默认  
-      current: 0
+      current: 0,
+      date: "2016-09-01",
+      array3: ['M2101', 'M2105', 'M2109'],
+      value3: 0,
   },
   imageLoad: function (e) {//获取图片真实宽度  
     var imgwidth = e.detail.width,
@@ -40,7 +43,7 @@ Page({
       console.log(imgwidth, imgheight)
     //计算的高度值  
     var viewHeight = 750 / ratio;
-    var imgheight = viewHeight;
+    var imgheight = 350; // 固定高度如果需要自适应高度，则 imgheight=viewHeight
     var imgheights = this.data.imgheights;
     //把每一张图片的对应的高度记录到数组里  
     imgheights[e.target.dataset.id] = imgheight;
@@ -60,6 +63,16 @@ Page({
        hid2: false
      })
     },
+    bindDateChange: function (e) {
+      this.setData({
+          date: e.detail.value
+      })
+    },
+    bindPicker3Change: function(e) {
+      this.setData({
+          value3: e.detail.value
+      })
+  },
     getPhoneNumber: function(e) {
       var that = this;
       console.log("getPhoneNumberok" +JSON.stringify(e));
