@@ -1,8 +1,8 @@
 <!--pages/test/test.wxml-->
-<!-- <view class='padding flex flex-direction'>
+<view class='padding flex flex-direction'>
   <button class="cu-btn bg-blue margin-tb-xs lg"  hidden="{{hid1}}"  open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权</button>
   <button class="cu-btn bg-blue margin-tb-xs lg"  hidden="{{hid2}}"  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" >进入</button>
-</view> -->
+</view>
 <view class='swiper'>
     <swiper indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" duration="{{duration}}" interval='{{interval}}' bindchange="bindchange"  circular="{{circular}}" style="height:{{imgheights[current]}}rpx;">
     <block wx:for='{{imgList}}' wx:key="{{index}}">

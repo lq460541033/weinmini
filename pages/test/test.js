@@ -56,35 +56,25 @@ Page({
     this.setData({ current: e.detail.current })
   },
   bindGetUserInfo:function(e){   
-    console.log('e:' + JSON.stringify(e))
+    console.log('userNicheng:' + JSON.stringify(e))
       this.setData({
        userNicheng: e.detail.userInfo.nickName,
        hid1: true,
        hid2: false
      })
     },
-    bindDateChange: function (e) {
-      this.setData({
-          date: e.detail.value
-      })
-    },
-    bindPicker3Change: function(e) {
-      this.setData({
-          value3: e.detail.value
-      })
-  },
     getPhoneNumber: function(e) {
       var that = this;
       console.log("getPhoneNumberok" +JSON.stringify(e));
       if (e.detail.errMsg == "getPhoneNumber:ok") {
         wx.request({
-           url: 'https://luoqiang5211.cn.utools.club/wx/user/wx4b680763d9aead54/phone',
+           url: app.globalData.urlPrefix+'/wx/user/'+app.globalData.appId+'/phone',
             data: {
               sessionKey: app.globalData.userInfo2.sessionKey,
-              rawData: e.detail.rawData,
-              signature: e.detail.signature,
-              encryptedData: e.detail.encryptedData,
-              iv: e.detail.iv,
+              rawData: app.globalData.userInfo.rawData,
+              signature: app.globalData.userInfo.signature,
+              encryptedData: e.detail.encryptedData, // e
+              iv: e.detail.iv, // e
             },
           method: "get",
           success: function(res) {        
@@ -105,7 +95,16 @@ Page({
         }) ;   
         console.log("navigateTo-----------------------end")
     },
-    
+    bindDateChange: function (e) {
+      this.setData({
+          date: e.detail.value
+      })
+    },
+    bindPicker3Change: function(e) {
+      this.setData({
+          value3: e.detail.value
+      })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

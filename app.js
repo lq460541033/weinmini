@@ -13,7 +13,7 @@ App({
         if (res.code) {
           //发起网络请求
           wx.request({
-            url: 'https://luoqiang5211.cn.utools.club/wx/user/wx4b680763d9aead54/login',
+            url: _this.globalData.urlPrefix+'/wx/user/'+_this.globalData.appId+'/login',
             data: {
               code: res.code
             },
@@ -32,7 +32,7 @@ App({
                           //发起网络请求
                           console.log("'res.data2':"+JSON.stringify(_this.globalData.userInfo2= _this.globalData.userInfo2))
                           wx.request({
-                            url: 'https://luoqiang5211.cn.utools.club/wx/user/wx4b680763d9aead54/info',
+                            url:  _this.globalData.urlPrefix+'/wx/user/'+ _this.globalData.appId+'/info',
                             data: {
                               sessionKey: _this.globalData.userInfo2.sessionKey,
                               rawData:res.rawData,
@@ -73,6 +73,8 @@ App({
   
   },
   globalData: {
+    urlPrefix:"https://luoqiang5212.cn.utools.club",
+    appId:"wx2a7fa3ab9283c556",
     userInfo: null,
     userInfo2:{
       "sessionKey":"",
