@@ -81,19 +81,15 @@ Page({
             that.setData({
               userPhone: res.data
             })
-            // 页面跳转
-            wx.navigateTo({
-            url: '../index/index'
-              }) ;      
+            // 页面跳转   wx.navigateTo 
+            // table跳转   wx.switchTab
+            wx.switchTab({
+              url: '/pages/calculator/calculator'
+                }) ;    
           }
         })
       }
-         // 页面跳转
-         console.log("navigateTo-----------------------start")
-         wx.navigateTo({
-          url: '../index/index'
-        }) ;   
-        console.log("navigateTo-----------------------end")
+  
     },
     bindDateChange: function (e) {
       this.setData({
