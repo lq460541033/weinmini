@@ -1,75 +1,56 @@
-<!--pages/calculator/calculator.wxml-->
-<view class="container">
-<view  class="slideshow">
-  <swiper
-    indicator-dots="{{true}}"  
-    autoplay="{{true}}"
-    style="width: 750rpx;">
-    <swiper-item>
-      <image src="https://picsum.photos/200"></image>
-    </swiper-item>
-    <swiper-item>
-      <image src="https://picsum.photos/250"></image>
-    </swiper-item>
-    <swiper-item>
-      <image src="https://picsum.photos/300"></image>
-    </swiper-item>
-  </swiper>
-</view>
-
-    <!-- <view>
-      <button class="weui-btn weui-btn_primary" bindtap="getUserPhone">
-        主操作
-      </button>
-      <button class="weui-btn weui-btn_primary weui-btn_loading">
-        <i class="weui-loading"></i>正在加载
-      </button>
-      <button class="weui-btn weui-btn_primary weui-btn_disabled">
-        禁止点击
-      </button>
-    </view>
-    <view>
-      <swiper indicator-dots="{{indicatorDots}}"
-      autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{imgUrls}}" wx:key="unique">
-        <swiper-item>
-        <image src="{{item}}" class="slide-image"/>
-        </swiper-item>
+<!--pages/test/test.wxml-->
+<!-- <view class='padding flex flex-direction'>
+  <button class="cu-btn bg-blue margin-tb-xs lg"  hidden="{{hid1}}"  open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权</button>
+  <button class="cu-btn bg-blue margin-tb-xs lg"  hidden="{{hid2}}"  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" >进入</button>
+</view> -->
+<view class='swiper'>
+    <swiper indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" duration="{{duration}}" interval='{{interval}}' bindchange="bindchange"  circular="{{circular}}" style="height:{{imgheights[current]}}rpx;">
+    <block wx:for='{{imgList}}' wx:key="{{index}}">
+      <swiper-item>
+        <image src="{{item}}" data-id='{{index}}' class="slide-image" mode="widthFix" bindload="imageLoad"/>
+      </swiper-item>
       </block>
-      </swiper>
-    </view> -->
-    <view >
+    </swiper>
+	</view>
+	<view >
       <!-- <view class="weui-form"> -->
             <view class="weui-form__control-area">
               <view class="weui-cells__group weui-cells__group_form">
                 <view class="weui-cells weui-cells_form">
-                  <view class="weui-cell weui-cell_active">
-                    <view class="weui-cell__hd"><label class="weui-label">合约</label></view>
-                    <view class="weui-cell__bd">
-                      <input class="weui-input" placeholder="填写本人微信号" placeholder-class="weui-input__placeholder" />
-                    </view>
-                  </view>
+									<view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+										<view class="weui-cell__hd">
+											<label class="weui-label" >合约</label>
+										</view>
+										<view class="weui-cell__bd">
+																		<picker bindchange="bindPicker3Change" range="{{array3}}">
+																				<view class="weui-select">{{array3[value3]}}</view>
+																		</picker>
+										</view>
+									</view>
+
                   <view class="weui-cell weui-cell_active">
                     <view class="weui-cell__hd">							
                                     <label class="weui-label">合同量</label>
                                 </view>
                     <view class="weui-cell__bd">
-                      <input class="weui-input" placeholder="填写本人微信号的昵称" placeholder-class="weui-input__placeholder" />
+                      <input class="weui-input" placeholder="请输入合同量" placeholder-class="weui-input__placeholder" />
                     </view>
                   </view>
-                  <view class="weui-cell weui-cell_active">
-                    <view class="weui-cell__hd">							
-                                    <label class="weui-label">点价截至时间</label>
-                                </view>
-                    <view class="weui-cell__bd">
-                      <input class="weui-input" placeholder="填写绑定的电话号码" type="number" placeholder-class="weui-input__placeholder" />
-                    </view>
-                  </view>
+									<view class="weui-cell weui-cell_active">
+											<view class="weui-cell__hd">
+													<view class="weui-label">点价截至时间</view>
+											</view>
+											<view class="weui-cell__bd">
+													<picker mode="date" value="{{date}}" start="2000-09-01" end="2025-12-01" bindchange="bindDateChange">
+															<view class="weui-input">{{date}}</view>
+													</picker>
+											</view>
+           		 		</view>
                 </view>
               </view>
             </view>
             <view class="weui-form__opr-area">
-              <a class="weui-btn weui-btn_primary">计算</a>
+              <a class="weui-btn weui-btn_primary">获得结果</a>
             </view>
 
             <view class="weui-form__extra-area">
@@ -82,6 +63,3 @@
             </view>
       <!-- </view> -->
     </view>
-      
-   
-</view>

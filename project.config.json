@@ -33,8 +33,7 @@
     "userConfirmedUseCompilerModuleSwitch": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": true,
-    "packNpmRelationList": [
-    ],
+    "packNpmRelationList": [],
     "minifyWXSS": true,
     "bundle": false
   },

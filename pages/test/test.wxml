@@ -41,7 +41,7 @@
 													<view class="weui-label">点价截至时间</view>
 											</view>
 											<view class="weui-cell__bd">
-													<picker mode="date" value="{{date}}" start="2000-09-01" end="2090-09-01" bindchange="bindDateChange">
+													<picker mode="date" value="{{date}}" start="2000-09-01" end="2025-12-01" bindchange="bindDateChange">
 															<view class="weui-input">{{date}}</view>
 													</picker>
 											</view>
